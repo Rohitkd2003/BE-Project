@@ -1,0 +1,532 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="be_projectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="code" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Companies">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MinCgpa" Type="decimal" Precision="3" Scale="2" Nullable="false" />
+          <Property Name="MaxBacklogs" Type="int" Nullable="false" />
+          <Property Name="RequiredSkills" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DocFiles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="255" />
+          <Property Name="FileData" Type="varbinary(max)" />
+          <Property Name="FileType" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="jobapi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="LinkedInProfile" Type="nvarchar" MaxLength="255" />
+          <Property Name="ResumePath" Type="nvarchar" MaxLength="255" />
+          <Property Name="CompanyName" Type="nvarchar(max)" />
+          <Property Name="SubmittedAt" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PdfFiles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="100" />
+          <Property Name="FileData" Type="varbinary(max)" />
+          <Property Name="FileType" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="placement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="code" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="placementcompany">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Aadhar" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PAN" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="FathersOccupation" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="FamilyIncome" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Degree" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="University" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CGPA" Type="decimal" Precision="3" Scale="2" Nullable="false" />
+          <Property Name="Backlogs" Type="int" Nullable="false" />
+          <Property Name="Skills" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="Experience" Type="nvarchar" MaxLength="500" />
+          <Property Name="Resume" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="PptFiles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="FileData" Type="varbinary(max)" Nullable="false" />
+          <Property Name="FileType" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="student_id" />
+          </Key>
+          <Property Name="student_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="phone_number" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="degree" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="department" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="passing_year" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Teachers">
+          <Key>
+            <PropertyRef Name="teacher_id" />
+          </Key>
+          <Property Name="teacher_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="teacher_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="gender" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="teacher_code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email_address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="mobile_number" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="department" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="salary" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="profile_photo" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblstream">
+          <Key>
+            <PropertyRef Name="stream_id" />
+          </Key>
+          <Property Name="stream_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stream_name" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblstudents">
+          <Key>
+            <PropertyRef Name="student_id" />
+          </Key>
+          <Property Name="student_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="student_name" Type="varchar" MaxLength="100" />
+          <Property Name="gender" Type="varchar" MaxLength="100" />
+          <Property Name="student_code" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="email_address" Type="varchar" MaxLength="100" />
+          <Property Name="mobile_number" Type="varchar" MaxLength="100" />
+          <Property Name="stream_id" Type="int" />
+          <Property Name="fees" Type="varchar" MaxLength="200" />
+          <Property Name="password" Type="varchar" MaxLength="100" />
+          <Property Name="profile_photo" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="fkdesid">
+          <End Role="tblstream" Type="Self.tblstream" Multiplicity="0..1" />
+          <End Role="tblstudents" Type="Self.tblstudents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblstream">
+              <PropertyRef Name="stream_id" />
+            </Principal>
+            <Dependent Role="tblstudents">
+              <PropertyRef Name="stream_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="be_projectModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Companies" EntityType="Self.Companies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocFiles" EntityType="Self.DocFiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="jobapi" EntityType="Self.jobapi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PdfFiles" EntityType="Self.PdfFiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="placement" EntityType="Self.placement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="placementcompany" EntityType="Self.placementcompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PptFiles" EntityType="Self.PptFiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblstream" EntityType="Self.tblstream" Schema="test" store:Type="Tables" />
+          <EntitySet Name="tblstudents" EntityType="Self.tblstudents" Schema="test" store:Type="Tables" />
+          <AssociationSet Name="fkdesid" Association="Self.fkdesid">
+            <End Role="tblstream" EntitySet="tblstream" />
+            <End Role="tblstudents" EntitySet="tblstudents" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="be_projectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblstream">
+          <Key>
+            <PropertyRef Name="stream_id" />
+          </Key>
+          <Property Name="stream_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stream_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="tblstudents" Relationship="be_projectModel.fkdesid" FromRole="tblstream" ToRole="tblstudent" />
+        </EntityType>
+        <EntityContainer Name="be_projectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblstreams" EntityType="Self.tblstream" />
+          <EntitySet Name="Students" EntityType="be_projectModel.Student" />
+          <EntitySet Name="jobapis" EntityType="be_projectModel.jobapi" />
+          <EntitySet Name="Teachers" EntityType="be_projectModel.Teacher" />
+          <EntitySet Name="tblstudents" EntityType="be_projectModel.tblstudent" />
+          <AssociationSet Name="fkdesid" Association="be_projectModel.fkdesid">
+            <End Role="tblstream" EntitySet="tblstreams" />
+            <End Role="tblstudent" EntitySet="tblstudents" />
+          </AssociationSet>
+          <EntitySet Name="DocFiles" EntityType="be_projectModel.DocFile" />
+          <EntitySet Name="PdfFiles" EntityType="be_projectModel.PdfFile" />
+          <EntitySet Name="PptFiles" EntityType="be_projectModel.PptFile" />
+          <EntitySet Name="Companies" EntityType="be_projectModel.Company" />
+          <EntitySet Name="placementcompanies" EntityType="be_projectModel.placementcompany" />
+          <EntitySet Name="Admins" EntityType="be_projectModel.Admin" />
+          <EntitySet Name="placements" EntityType="be_projectModel.placement" />
+        </EntityContainer>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="student_id" />
+          </Key>
+          <Property Name="student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="phone_number" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="degree" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="department" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="passing_year" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="jobapi">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="LinkedInProfile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ResumePath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SubmittedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="teacher_id" />
+          </Key>
+          <Property Name="teacher_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="teacher_name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="teacher_code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email_address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mobile_number" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="department" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="salary" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="profile_photo" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblstudent">
+          <Key>
+            <PropertyRef Name="student_id" />
+          </Key>
+          <Property Name="student_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="student_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="student_code" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="mobile_number" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="stream_id" Type="Int32" />
+          <Property Name="fees" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="profile_photo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblstream" Relationship="be_projectModel.fkdesid" FromRole="tblstudent" ToRole="tblstream" />
+        </EntityType>
+        <Association Name="fkdesid">
+          <End Type="be_projectModel.tblstream" Role="tblstream" Multiplicity="0..1" />
+          <End Type="be_projectModel.tblstudent" Role="tblstudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblstream">
+              <PropertyRef Name="stream_id" />
+            </Principal>
+            <Dependent Role="tblstudent">
+              <PropertyRef Name="stream_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DocFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FileData" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="FileType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PdfFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FileData" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="FileType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PptFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FileData" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="FileType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Company">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MinCgpa" Type="Decimal" Nullable="false" Precision="3" Scale="2" />
+          <Property Name="MaxBacklogs" Type="Int32" Nullable="false" />
+          <Property Name="RequiredSkills" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="placementcompany">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Aadhar" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PAN" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FathersOccupation" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyIncome" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Degree" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="University" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CGPA" Type="Decimal" Nullable="false" Precision="3" Scale="2" />
+          <Property Name="Backlogs" Type="Int32" Nullable="false" />
+          <Property Name="Skills" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Experience" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Resume" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="placement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="be_projectModelStoreContainer" CdmEntityContainer="be_projectEntities">
+          <EntitySetMapping Name="tblstreams">
+            <EntityTypeMapping TypeName="be_projectModel.tblstream">
+              <MappingFragment StoreEntitySet="tblstream">
+                <ScalarProperty Name="stream_id" ColumnName="stream_id" />
+                <ScalarProperty Name="stream_name" ColumnName="stream_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="be_projectModel.Student">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="passing_year" ColumnName="passing_year" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="degree" ColumnName="degree" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jobapis">
+            <EntityTypeMapping TypeName="be_projectModel.jobapi">
+              <MappingFragment StoreEntitySet="jobapi">
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="SubmittedAt" ColumnName="SubmittedAt" />
+                <ScalarProperty Name="ResumePath" ColumnName="ResumePath" />
+                <ScalarProperty Name="LinkedInProfile" ColumnName="LinkedInProfile" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teachers">
+            <EntityTypeMapping TypeName="be_projectModel.Teacher">
+              <MappingFragment StoreEntitySet="Teachers">
+                <ScalarProperty Name="profile_photo" ColumnName="profile_photo" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="mobile_number" ColumnName="mobile_number" />
+                <ScalarProperty Name="email_address" ColumnName="email_address" />
+                <ScalarProperty Name="teacher_code" ColumnName="teacher_code" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="teacher_name" ColumnName="teacher_name" />
+                <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblstudents">
+            <EntityTypeMapping TypeName="be_projectModel.tblstudent">
+              <MappingFragment StoreEntitySet="tblstudents">
+                <ScalarProperty Name="profile_photo" ColumnName="profile_photo" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="fees" ColumnName="fees" />
+                <ScalarProperty Name="stream_id" ColumnName="stream_id" />
+                <ScalarProperty Name="mobile_number" ColumnName="mobile_number" />
+                <ScalarProperty Name="email_address" ColumnName="email_address" />
+                <ScalarProperty Name="student_code" ColumnName="student_code" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="student_name" ColumnName="student_name" />
+                <ScalarProperty Name="student_id" ColumnName="student_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocFiles">
+            <EntityTypeMapping TypeName="be_projectModel.DocFile">
+              <MappingFragment StoreEntitySet="DocFiles">
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+                <ScalarProperty Name="FileData" ColumnName="FileData" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PdfFiles">
+            <EntityTypeMapping TypeName="be_projectModel.PdfFile">
+              <MappingFragment StoreEntitySet="PdfFiles">
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+                <ScalarProperty Name="FileData" ColumnName="FileData" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PptFiles">
+            <EntityTypeMapping TypeName="be_projectModel.PptFile">
+              <MappingFragment StoreEntitySet="PptFiles">
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+                <ScalarProperty Name="FileData" ColumnName="FileData" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Companies">
+            <EntityTypeMapping TypeName="be_projectModel.Company">
+              <MappingFragment StoreEntitySet="Companies">
+                <ScalarProperty Name="RequiredSkills" ColumnName="RequiredSkills" />
+                <ScalarProperty Name="MaxBacklogs" ColumnName="MaxBacklogs" />
+                <ScalarProperty Name="MinCgpa" ColumnName="MinCgpa" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="placementcompanies">
+            <EntityTypeMapping TypeName="be_projectModel.placementcompany">
+              <MappingFragment StoreEntitySet="placementcompany">
+                <ScalarProperty Name="Resume" ColumnName="Resume" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="Skills" ColumnName="Skills" />
+                <ScalarProperty Name="Backlogs" ColumnName="Backlogs" />
+                <ScalarProperty Name="CGPA" ColumnName="CGPA" />
+                <ScalarProperty Name="University" ColumnName="University" />
+                <ScalarProperty Name="Degree" ColumnName="Degree" />
+                <ScalarProperty Name="FamilyIncome" ColumnName="FamilyIncome" />
+                <ScalarProperty Name="FathersOccupation" ColumnName="FathersOccupation" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PAN" ColumnName="PAN" />
+                <ScalarProperty Name="Aadhar" ColumnName="Aadhar" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="be_projectModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="placements">
+            <EntityTypeMapping TypeName="be_projectModel.placement">
+              <MappingFragment StoreEntitySet="placement">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

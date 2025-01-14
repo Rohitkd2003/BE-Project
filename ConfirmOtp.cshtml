@@ -1,0 +1,118 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm OTP</title>
+    <style>
+        /* Main Body Style */
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        /* Container Style */
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 2em;
+            max-width: 400px;
+            width: 90%;
+            margin: 1em;
+        }
+
+        /* Heading Style */
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 1em;
+        }
+
+        /* Table Style */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5em;
+        }
+
+        td {
+            padding: 0.8em;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        /* Input and Button Styles */
+        input[type="text"] {
+            padding: 0.5em;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 80%;
+            margin: 0 auto;
+            display: block;
+        }
+
+        input[type="submit"] {
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #0056b3;
+            }
+
+        /* Error Message Style */
+        h4 {
+            color: red;
+            text-align: center;
+            margin-top: 1em;
+        }
+
+        /* Additional Text Style */
+        .info-text {
+            text-align: center;
+            color: #555;
+            margin-top: 1em;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Your OTP <span class="emoji">🔐</span></h2>
+        <p class="info-text">Please enter the OTP sent to your registered email or phone number to verify your identity. If you didn’t receive it, <a href="Login">request a new one</a>.</p>
+        @using (Html.BeginForm())
+        {
+            <table>
+                <tr>
+                    <td>OTP <span class="emoji">📩</span></td>
+                    <td>@Html.TextBox("user_otp", null, new { placeholder = "Enter OTP", style = "width:100%;" })</td>
+                    <td><input type="submit" value="Submit" /></td>
+                </tr>
+            </table>
+        }
+        <h4>@ViewBag.msg</h4>
+    </div>
+</body>
+</html>

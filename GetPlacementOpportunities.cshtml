@@ -1,0 +1,139 @@
+﻿@{
+    Layout = null;
+}
+@using System.Linq  <!-- Add this to ensure LINQ methods are available -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recommended Companies</title>
+
+    <!-- Add Bootstrap for layout -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <style>
+        /* Overall body styling */
+        body {
+            background-color: #2f3b4c; /* Dark grey-blue background */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        h3 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            color: #ffffff;
+            margin-top: 40px;
+        }
+
+        /* Card container to align cards */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        /* Card Styling */
+        .company-card {
+            background-color: #ffffff; /* White background for cards */
+            color: #333; /* Dark text color for readability */
+            border-radius: 15px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+            width: 280px;
+            text-align: center;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover effect for the card */
+        .company-card:hover {
+            transform: translateY(-12px); /* Lift effect */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); /* Enhanced shadow on hover */
+        }
+
+        .company-name {
+            font-size: 1.6em;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #222; /* Darker color for company name */
+        }
+
+        .skills {
+            color: #777; /* Grey color for skills text */
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        /* Apply button styling */
+        .link_name {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #1c7ed6; /* Blue background */
+            color: white; /* White text */
+            font-size: 1.1em;
+            text-align: center;
+            text-decoration: none;
+            border: 2px solid #1c7ed6;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Hover effect for Apply button */
+        .link_name:hover {
+            background-color: #1b6fd5; /* Slightly darker blue */
+            border-color: #1b6fd5;
+            color: #fff; /* Keep text white */
+        }
+
+        /* Responsive styling */
+        @@media (max-width: 768px) {
+            .card-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .company-card {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Check if there are recommended companies -->
+    @if (Model != null && Model.Count > 0)
+    {
+        <h3 class="text-center">Recommended Companies</h3>
+
+        <div class="card-container">
+            @foreach (var company in Model)
+            {
+                <div class="company-card">
+                    <div class="company-name">@company.Name</div>
+                    <div class="skills">
+                        <span style="color: black;">Required Skills: </span>@company.RequiredSkills
+                    </div>
+                    <!-- Apply Button with border -->
+                    <div class="text-center">
+                        <a class="link_name" href="~/company2/cform2">Apply</a>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p class="text-center">No companies found matching your profile.</p>
+    }
+
+</body>
+</html>

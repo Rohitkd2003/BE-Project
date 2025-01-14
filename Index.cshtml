@@ -1,0 +1,115 @@
+﻿@model IEnumerable<BE_PROJECT_1.Models.tblstudent>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Index</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        /* Custom Styles */
+        body {
+            background-color: #f4f6f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container-fluid {
+            margin-top: 2em;
+        }
+
+        .btn-add {
+            display: inline-block;
+            margin-bottom: 2em;
+            padding: 0.75em 2em;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            font-size: 1.2em;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+            .btn-add:hover {
+                background-color: #0056b3;
+                transform: scale(1.05);
+            }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 2em;
+            overflow: hidden;
+            transition: box-shadow 0.3s, transform 0.3s;
+            background-color: #ffffff;
+        }
+
+            .card:hover {
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+                transform: translateY(-5px);
+            }
+
+            .card img {
+                width: 100px; /* Adjusted size */
+                height: 100px; /* Adjusted size */
+                object-fit: cover;
+                border-radius: 50%; /* Circular profile photo */
+                border-bottom: 1px solid #ddd;
+                margin: 1em auto; /* Center the image */
+                display: block; /* Ensure image is centered */
+            }
+
+        .card-header {
+            padding: 1em;
+            border-bottom: 1px solid #ddd;
+        }
+
+            .card-header h4 {
+                margin: 0;
+                font-size: 1.2em;
+            }
+
+        .card-body {
+            padding: 1em;
+        }
+
+        .card-footer {
+            padding: 1em;
+            background-color: #f8f9fa;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <a href="@Url.Action("Create")" class="btn-add">Add New Student</a>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="card">
+                        <img src="~/Student Photo/@item.profile_photo" alt="Profile Photo" />
+                        <div class="card-header">
+                            <h4>Student Name: @item.student_name</h4>
+                            <h4>Student Code: @item.student_code</h4>
+                            <h4>Mobile Number: @item.mobile_number</h4>
+                        </div>
+                        <div class="card-body">
+                            <!-- Additional details or actions can be added here -->
+                        </div>
+                        <div class="card-footer">
+                            <!-- Footer content if needed -->
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>

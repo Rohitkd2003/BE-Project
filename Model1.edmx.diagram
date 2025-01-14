@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0544f12d0c434bb2bb98afc6e78fb5c8" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="be_projectModel.tblstream" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="be_projectModel.Student" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="be_projectModel.jobapi" Width="1.5" PointX="0.75" PointY="5.75" />
+        <EntityTypeShape EntityType="be_projectModel.Teacher" Width="1.5" PointX="3.375" PointY="5.75" />
+        <EntityTypeShape EntityType="be_projectModel.tblstudent" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="be_projectModel.fkdesid" />
+        <EntityTypeShape EntityType="be_projectModel.DocFile" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="be_projectModel.PdfFile" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="be_projectModel.PptFile" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="be_projectModel.Company" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="be_projectModel.placementcompany" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="be_projectModel.Admin" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="be_projectModel.placement" Width="1.5" PointX="0.75" PointY="9.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

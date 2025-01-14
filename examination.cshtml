@@ -1,0 +1,122 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examination</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .examination {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+            .examination h1 {
+                color: #004d99;
+                font-size: 40px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .examination p {
+                line-height: 1.8;
+                margin-bottom: 20px;
+            }
+
+            .examination .exam-schedule, .examination .exam-tips {
+                margin-bottom: 40px;
+            }
+
+                .examination .exam-schedule h2, .examination .exam-tips h2 {
+                    color: #0056b3;
+                    font-size: 28px;
+                    margin-bottom: 15px;
+                }
+
+                .examination .exam-schedule ul, .examination .exam-tips ul {
+                    list-style-type: none;
+                    padding: 0;
+                }
+
+                .examination .exam-schedule li, .examination .exam-tips li {
+                    background-color: #f9f9f9;
+                    padding: 15px;
+                    margin-bottom: 10px;
+                    border-radius: 8px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                }
+
+                .examination .exam-schedule li {
+                    border-left: 5px solid #004d99;
+                }
+
+                .examination .exam-tips li {
+                    border-left: 5px solid #0056b3;
+                }
+
+            .examination .exam-image {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+                .examination .exam-image img {
+                    max-width: 100%;
+                    height: auto;
+                    border-radius: 8px;
+                }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="examination">
+            <h1>Examination Information</h1>
+
+            <p>Welcome to the examination section of Sterling Global University. Here, you will find all the necessary details regarding upcoming exams, schedules, and tips to help you succeed.</p>
+
+            <div class="exam-schedule">
+                <h2>Exam Schedule</h2>
+                <ul>
+                    <li><strong>Semester 1 Exams:</strong> January 10 - February 5</li>
+                    <li><strong>Semester 2 Exams:</strong> May 1 - May 20</li>
+                    <li><strong>Summer Term Exams:</strong> July 1 - July 15</li>
+                </ul>
+            </div>
+
+            <div class="exam-tips">
+                <h2>Examination Tips</h2>
+                <ul>
+                    <li>Start your preparation early and create a study schedule.</li>
+                    <li>Review past exam papers and practice sample questions.</li>
+                    <li>Ensure you get adequate rest before the exam day.</li>
+                    <li>Stay calm and focused during the exam.</li>
+                    <li>Remember to review your answers if time permits.</li>
+                </ul>
+            </div>
+
+            <div class="exam-image">
+                <img src="/Content/ExaminationImage.jpg" alt="Examination Overview">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

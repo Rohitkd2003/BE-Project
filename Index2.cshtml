@@ -1,0 +1,1285 @@
+﻿@{
+    Layout = null;
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Page</title>
+    <style>
+        * {
+            background-color: ghostwhite;
+        }
+
+
+        body {
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            font-family: Arial, sans-serif; /* Optional: Set a default font */
+        
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            background-color: white;
+            overflow: hidden;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            text-align: center;
+            padding: 5px 0; /* Reduced height by adjusting padding */
+            z-index: 1000;
+            border-bottom: 2px solid #ddd;
+            display: flex;
+            justify-content: center; /* Centers the navbar items */
+            align-items: center; /* Vertically aligns items */
+        }
+
+            .navbar a {
+                color: black;
+                padding: 10px 20px; /* Adjusted padding for height */
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                transition: all 0.3s ease;
+                position: relative; /* Required for pseudo-element positioning */
+            }
+
+                .navbar a:hover {
+                    color: black; /* Maintain text color on hover */
+                    transform: translateY(-5px); /* Lift the element slightly on hover */
+                }
+
+                /* Underline effect on hover */
+                .navbar a::after {
+                    content: ''; /* No text content */
+                    position: absolute; /* Absolute positioning for underline */
+                    left: 0;
+                    bottom: 0; /* Align with bottom of the link */
+                    width: 100%;
+                    height: 2px; /* Thickness of the underline */
+                    background-color: black; /* Color of the underline */
+                    transform: scaleX(0); /* Start with zero width */
+                    transform-origin: bottom right; /* Origin for scaling animation */
+                    transition: transform 0.3s ease; /* Smooth transition effect */
+                }
+
+                .navbar a:hover::after {
+                    transform: scaleX(1); /* Expand to full width on hover */
+                    transform-origin: bottom left; /* Origin for scaling animation */
+                }
+
+
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; /* To avoid extra spacing around the navbar */
+        }
+
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #ccc;
+        }
+
+         /* Centering and making logo full-screen */
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: calc(100vh - 60px); /* Adjust for navbar height */
+            width: 100%;
+            position: absolute;
+            top: 60px; /* Adjust to match navbar height */
+            overflow: hidden;
+        }
+
+            .image-container img {
+                max-width: 100%;
+                max-height: 100%;
+                height: auto;
+                width: auto;
+                display: block;
+                object-fit: cover; /* Ensures the image covers the container without being cut off */
+                object-position: center;
+                transition: transform 0.3s ease; /* Smooth transition for the pop-up effect */
+            }
+
+                .image-container img:hover {
+                    transform: scale(1.05); /* Slightly enlarges the image on hover */
+                }
+
+
+      /* News and Announcement Section */
+        .announcement-container {
+            position: absolute;
+            top: 100px;
+            right: 50px;
+            width: 370px;
+            height: 600px;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease; /* Smooth transition for the pop-up effect */
+        }
+        .announcement-container:hover {
+            transform: scale(1.05); /* Slightly enlarges the image on hover */
+        }
+
+/* Fixed header within the container */
+        .announcement-header {
+            background-color: floralwhite;
+            color: dodgerblue;
+            padding: 0.5px 0; /* Reduced padding to decrease height */
+            font-size: 1rem; /* Adjust font size if needed */
+            text-align: center; /* Ensure text is centered */
+            position: sticky; /* Sticky header to keep it fixed at the top */
+            top: 0;
+            z-index: 1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+
+/* Scrolling content area */
+.announcement-content {
+    height: calc(100% - 50px); /* Adjust height to account for header */
+    overflow: hidden;
+}
+
+.announcement-list {
+    height: 100%;
+    animation: scrollUp 10s linear infinite;
+}
+
+@@keyframes scrollUp {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+/* Pausing the scrolling on hover */
+.announcement-container:hover .announcement-list {
+    animation-play-state: paused;
+}
+
+/* Announcement items */
+.announcement-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.announcement-list li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+/***************/
+        .gallery-container {
+            position: absolute;
+            top: 100px;
+            left: 50px; /* Positioned on the left side */
+            width: 370px;
+            height: 600px;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease; /* Smooth transition for the pop-up effect */
+        }
+            .gallery-container:hover {
+                transform: scale(1.05); /* Slightly enlarges the image on hover */
+            }
+        .gallery-header {
+            background-color: floralwhite;
+            color: dodgerblue;
+            padding: 5px 0; /* Reduced padding */
+            font-size: 1rem;
+            text-align: center;
+            position:initial;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-content {
+            height: calc(100% - 50px); /* Adjust height to account for header */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-images {
+            height: 100%; /* Adjust height to fit within the container */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-images-list {
+            height: 200%; /* Adjusted to cover twice the height for seamless scrolling */
+            animation: scrollUp 10s linear infinite; /* Adjust speed as needed */
+            display: flex;
+            flex-direction: column;
+        }
+
+        @@keyframes scrollUp {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        .gallery-images img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 10px; /* Space between images */
+        }
+
+        .gallery-list {
+            height: 50%; /* Adjust height to fit within the container */
+            overflow: hidden;
+            position: relative;
+        }
+
+            .gallery-list ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .gallery-list li {
+                padding: 10px;
+                border-bottom: 1px solid #ccc;
+            }
+
+        .gallery-container:hover .gallery-images-list {
+            animation-play-state: paused; /* Pause scrolling on hover */
+        }
+
+        .gallery-container:hover .gallery-list {
+            animation-play-state: paused; /* Pause announcements on hover */
+        }
+/*        *******
+*/
+section {
+            padding: 20px;
+            min-height: 100vh;
+            margin-top: 20px; /* Space below the image container */
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+        }
+
+        .container {
+            margin: 20px auto;
+            max-width: 1000px;
+        }
+
+        .info-cards {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            flex: 1;
+            margin: 10px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .officer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .officer {
+            margin: 10px;
+            padding: 10px;
+            max-width: 200px;
+        }
+
+            .officer img {
+                width: 100%;
+            }
+
+        .exam-tips ul, .exam-schedule ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .facility-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+            .facility-card img {
+                width: 30%;
+                margin-right: 20px;
+            }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+            .cta-button:hover {
+                background-color: #0056b3;
+            }
+
+        /* Styling for the contact form */
+        form {
+            display: grid;
+            gap: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+        .about-us {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+            .about-us h1 {
+                color: #004d99;
+                font-size: 40px;
+                margin-bottom: 20px;
+                border-bottom: 3px solid #004d99;
+                padding-bottom: 10px;
+            }
+
+            .about-us h2 {
+                color: #0056b3;
+                font-size: 32px;
+                margin-bottom: 20px;
+                position: relative;
+            }
+
+                .about-us h2::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    bottom: -5px;
+                    width: 50px;
+                    height: 4px;
+                    background-color: #0056b3;
+                }
+
+            .about-us p {
+                line-height: 1.8;
+                margin-bottom: 20px;
+                font-size: 18px;
+            }
+
+            .about-us img {
+                width: 100%;
+                height: auto;
+                border-radius: 12px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                margin-top: 30px;
+            }
+       .home-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff; /* Same as .about-us background */
+    border-radius: 12px; /* Rounded corners like .about-us */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Same shadow as .about-us */
+    margin-top: 20px; /* Margin at the top */
+    border-bottom: 2px solid #e1e1e1; /* Keep border for distinction */
+}
+
+.home-section h1 {
+    font-size: 36px;
+    color: #004d99; /* Update to match color theme */
+    margin: 0;
+    border-bottom: 3px solid #004d99; /* Add underline for emphasis */
+    padding-bottom: 10px;
+}
+
+.home-section p {
+    font-size: 18px;
+    color: #666;
+    margin: 20px 0;
+    line-height: 1.8; /* Adjust line height for better readability */
+}
+
+.home-section .cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #0056b3;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.home-section .cta-button:hover {
+    background-color: #004494; /* Darken on hover */
+}
+
+.home-section .info-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+
+        .officers {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+            .officers h1 {
+                color: #004d99;
+                font-size: 40px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .officers .officer-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .officers .officer {
+                background-color: #f9f9f9;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+
+                .officers .officer img {
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 3px solid #004d99;
+                    margin-bottom: 15px;
+                }
+
+                .officers .officer h2 {
+                    color: #0056b3;
+                    font-size: 24px;
+                    margin: 10px 0;
+                }
+
+                .officers .officer p {
+                    color: #666;
+                    font-size: 16px;
+                    margin: 0;
+                }
+
+
+        .examination {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+            .examination h1 {
+                color: #004d99;
+                font-size: 40px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .examination p {
+                line-height: 1.8;
+                margin-bottom: 20px;
+            }
+
+            .examination .exam-schedule, .examination .exam-tips {
+                margin-bottom: 40px;
+            }
+
+                .examination .exam-schedule h2, .examination .exam-tips h2 {
+                    color: #0056b3;
+                    font-size: 28px;
+                    margin-bottom: 15px;
+                }
+
+                .examination .exam-schedule ul, .examination .exam-tips ul {
+                    list-style-type: none;
+                    padding: 0;
+                }
+
+                .examination .exam-schedule li, .examination .exam-tips li {
+                    background-color: #f9f9f9;
+                    padding: 15px;
+                    margin-bottom: 10px;
+                    border-radius: 8px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                }
+
+                .examination .exam-schedule li {
+                    border-left: 5px solid #004d99;
+                }
+
+                .examination .exam-tips li {
+                    border-left: 5px solid #0056b3;
+                }
+
+            .examination .exam-image {
+                text-align: center;
+                margin-top: 20px;
+            }
+
+                .examination .exam-image img {
+                    max-width: 100%;
+                    height: auto;
+                    border-radius: 8px;
+                }
+
+        .academics {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+            .academics h1 {
+                color: #004d99;
+                font-size: 40px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+        .program {
+            margin-bottom: 30px;
+        }
+
+            .program h2 {
+                color: #0056b3;
+                font-size: 32px;
+                margin-bottom: 10px;
+            }
+
+            .program p {
+                line-height: 1.8;
+            }
+
+            .program img {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                margin-top: 20px;
+            }
+
+        .departments {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .department {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(50% - 20px);
+            margin-bottom: 20px;
+        }
+
+            .department h3 {
+                color: #004d99;
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+
+            .department p {
+                line-height: 1.8;
+            }
+
+        (max-width: 768px) {
+            .department
+
+        {
+            flex: 1 1 100%;
+        }
+
+        }
+        .facilities {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+            .facilities h1 {
+                color: #004d99;
+                font-size: 40px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+        .facility-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+            .facility-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .facility-card img {
+                width: 150px;
+                height: 150px;
+                border-radius: 8px;
+                margin-right: 20px;
+                object-fit: cover;
+            }
+
+            .facility-card h2 {
+                color: #0056b3;
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+
+            .facility-card p {
+                line-height: 1.8;
+            }
+        .gallery {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+            .gallery h1 {
+                color: #004d99;
+                font-size: 36px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+            .gallery-item:hover {
+                transform: scale(1.05);
+            }
+
+            .gallery-item img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            .gallery-item .caption {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                color: #fff;
+                text-align: center;
+                padding: 10px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .gallery-item:hover .caption {
+                opacity: 1;
+            }
+
+        (max-width: 768px) {
+            .gallery-grid
+
+        {
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        }
+
+        }
+        .contact-us {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+            .contact-us h1 {
+                color: #004d99;
+                font-size: 36px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+            .contact-info div {
+                flex: 1;
+                min-width: 250px;
+                margin: 10px;
+                padding: 20px;
+                background-color: #f9f9f9;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .contact-info h2 {
+                color: #555;
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .contact-info p {
+                line-height: 1.6;
+            }
+
+        .contact-form {
+            margin-top: 30px;
+        }
+
+            .contact-form h2 {
+                color: #555;
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+
+            .contact-form form {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .contact-form input, .contact-form textarea {
+                margin-bottom: 15px;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+
+            .contact-form button {
+                padding: 15px;
+                background-color: #004d99;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                font-size: 18px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+                .contact-form button:hover {
+                    background-color: #003366;
+                }
+
+        .map-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+            .map-container iframe {
+                width: 100%;
+                height: 400px;
+                border: 0;
+                border-radius: 8px;
+            }
+
+        (max-width: 768px) {
+            .contact-info
+
+        {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px; /* Adjust this value to position the button vertically */
+            right: 20px; /* Adjust this value to position the button horizontally */
+            background-color: #007bff; /* Button color */
+            color: white; /* Text color */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            z-index: 1000; /* Ensures button stays on top */
+            display: none; /* Initially hide the button */
+        }
+
+            .scroll-to-top:hover {
+                background-color: #0056b3; /* Darker button color on hover */
+            }
+
+
+    </style>
+</head>
+<body>
+        
+        <div class="navbar">
+            <a href="@Url.Action("Index2", "MainLogin")">🏠 HOME</a>
+            <a href="#about">ℹ️ ABOUT US</a>
+            <a href="#officers">👥 OFFICERS</a>
+            <a href="#examination">📝 EXAMINATION</a>
+            <a href="#academics">📚 ACADEMICS</a>
+            <a href="#facilities">🏢 FACILITIES</a>
+            <a href="#gallery">🖼️ GALLERY</a>
+            <a href="#contactus">📞 CONTACT US</a>
+            <a href="@Url.Action("Index", "MainLogin")">🔑 LOGIN</a>
+        </div>
+
+        <!-- Header Section with Logo and News/Announcements -->
+        <!-- Logo Section -->
+        <div class="image-container">
+            <img src="~/Content/RS.png" alt="University Image">
+        </div>
+
+        <!-- News and Announcement Section -->
+
+
+        <div class="announcement-container">
+            <div class="announcement-header">
+                <h2>🗞️ News & Announcements 📣</h2>
+            </div>
+            <div class="announcement-content">
+                <div class="announcement-list">
+                    <ul>
+                        <li>🔔 New update available! Check it out now.</li>
+                        <li>📅 Upcoming event: Annual conference on 20th Oct.</li>
+                        <li>🌟 Special feature released in the latest version.</li>
+                        <li>📈 Performance improvements in the latest update.</li>
+                        <li>🚀 New partnership announced with XYZ Corp.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <h2>🖼️ Gallery 📸</h2>
+            </div>
+            <div class="gallery-content">
+                <div class="gallery-images">
+                    <div class="gallery-images-list">
+                        <img src="~/Content/RS.png" alt="Gallery Image 1">
+                        <img src="~/Content/india-3544450_1280 (3).jpg" alt="Gallery Image 1">
+                        <!-- Duplicate images for seamless scrolling -->
+                        <img src="~/Content/RS.png" alt="Gallery Image 1">
+                        <img src="~/Content/india-3544450_1280 (3).jpg" alt="Gallery Image 1">
+                        <img src="image3.jpg" alt="Gallery Image 3">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Add any additional JavaScript if needed
+            });
+        </script>
+
+        <!-- Home Section -->
+        <div class="home-section">
+            <section id="home" class="container">
+                </br></br></br></br></br></br></br></br></br>
+                </br></br></br></br></br></br></br></br></br>
+                </br></br></br></br></br></br></br></br></br>
+                </br></br></br></br></br></br></br></br></br>
+                </br></br></br></br>
+
+
+                <h1>Welcome to Sterling Global University</h1>
+                <p>At Sterling Global University, we are committed to providing a world-class education that prepares our students for success in an ever-evolving global landscape.</p>
+                <a href="~/MainLogin/Index" class="cta-button">Apply Now</a>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h3>Top-Ranked Programs</h3>
+                        <p>Explore our highly ranked programs designed to offer you the best academic experience.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>State-of-the-Art Facilities</h3>
+                        <p>Our modern facilities are equipped with the latest technology to enhance your learning experience.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Diverse Community</h3>
+                        <p>Join a vibrant community of students and faculty from around the world.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- About Us Section -->
+        <div class="about-us">
+            <section id="about" class="container">
+                </br></br></br></br></br></br>
+                <h1>About Us</h1>
+                <p>Welcome to Sterling Global University, a premier institution dedicated to providing top-notch education.</p>
+                <h2>Our History</h2>
+                <p>Founded in 1985, Sterling Global University has evolved into a leading educational institution.</p>
+                <h2>Our Mission</h2>
+                <p>Our mission is to provide high-quality education that equips students with knowledge and values.</p>
+                <h2>Our Vision</h2>
+                <p>We envision a world where education transforms lives and communities.</p>
+            </section>
+        </div>
+
+        <!-- Officers Section -->
+        <div class="officers">
+
+            <section id="officers" class="container">
+                </br></br></br></br></br>
+
+                <h1>Our Esteemed Officers</h1>
+                <div class="officer-grid">
+                    <div class="officer">
+
+                        <img src="~/Content/profilepic.png" alt="Dr. John Doe">
+                        <h2>Dr. John </h2>
+                        <p>President</p>
+                    </div>
+                    <div class="officer">
+                        <img src="~/Content/profilepic.png" alt="Dr. Jane Smith">
+                        <h2>Dr. Jane Smith</h2>
+                        <p>Vice President</p>
+                    </div>
+                    <div class="officer">
+                        <img src="~/Content/profilepic.png" alt="Mr. Michael Johnson">
+                        <h2>Mr. Michael Johnson</h2>
+                        <p>Dean of Faculty</p>
+                    </div>
+                    <div class="officer">
+                        <img src="~/Content/profilepic.png" alt="Ms. Emily Davis">
+                        <h2>Ms. Emily Davis</h2>
+                        <p>Director of Admissions</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Examination Section -->
+        <div class="examination">
+
+            <section id="examination" class="container">
+                </br></br></br></br></br>
+
+                <h1>Examination Information</h1>
+                <div class="exam-schedule">
+                    <h2>Exam Schedule</h2>
+                    <ul>
+                        <li><strong>Semester 1 Exams:</strong> January 10 - February 5</li>
+                        <li><strong>Semester 2 Exams:</strong> May 1 - May 20</li>
+                        <li><strong>Summer Term Exams:</strong> July 1 - July 15</li>
+                    </ul>
+                </div>
+                <div class="exam-tips">
+                    <h2>Examination Tips</h2>
+                    <ul>
+                        <li>Start your preparation early.</li>
+                        <li>Review past exam papers and practice sample questions.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <!-- Academics Section -->
+        <section id="academics" class="container">
+            </br></br></br></br></br></br></br>
+            <div class="academics">
+                <h1>Academics</h1>
+
+                <div class="program">
+                    <h2>Undergraduate Programs</h2>
+                    <p>Our undergraduate programs offer a comprehensive curriculum designed to equip students with the knowledge and skills needed for their chosen careers. From engineering to humanities, our programs are tailored to provide a well-rounded education.</p>
+                    <img src="/Content/UndergraduatePrograms.jpg" alt="Undergraduate Programs">
+                </div>
+
+                <div class="program">
+                    <h2>Graduate Programs</h2>
+                    <p>Our graduate programs provide advanced education and research opportunities in various fields. Students can engage in cutting-edge research, participate in industry collaborations, and develop specialized skills.</p>
+                    <img src="/Content/GraduatePrograms.jpg" alt="Graduate Programs">
+                </div>
+
+                <div class="program">
+                    <h2>Doctoral Programs</h2>
+                    <p>Our doctoral programs are designed for students who aspire to conduct high-level research and contribute to academic knowledge. With access to expert faculty and research facilities, students can pursue their research interests and make significant contributions to their fields.</p>
+                    <img src="/Content/DoctoralPrograms.jpg" alt="Doctoral Programs">
+                </div>
+
+                <div class="program">
+                    <h2>Continuing Education</h2>
+                    <p>Our continuing education programs offer opportunities for lifelong learning. These programs are designed for professionals looking to enhance their skills, gain new certifications, or explore new areas of interest.</p>
+                    <img src="/Content/ContinuingEducation.jpg" alt="Continuing Education">
+                </div>
+
+                <h1>Departments</h1>
+                <div class="departments">
+                    <div class="department">
+                        <h3>Department of Computer Science</h3>
+                        <p>The Department of Computer Science offers cutting-edge courses and research opportunities in areas such as software engineering, artificial intelligence, and cybersecurity.</p>
+                    </div>
+
+                    <div class="department">
+                        <h3>Department of Business Administration</h3>
+                        <p>The Department of Business Administration provides comprehensive programs in business management, finance, and marketing, preparing students for leadership roles in the corporate world.</p>
+                    </div>
+
+                    <div class="department">
+                        <h3>Department of Engineering</h3>
+                        <p>The Department of Engineering offers programs in various engineering disciplines, including mechanical, civil, and electrical engineering, with a focus on practical and theoretical knowledge.</p>
+                    </div>
+
+                    <div class="department">
+                        <h3>Department of Humanities</h3>
+                        <p>The Department of Humanities explores various fields such as literature, history, and philosophy, providing students with a deep understanding of human culture and intellectual traditions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facilities Section -->
+        <section id="facilities" class="container">
+            </br></br></br></br></br></br>
+
+            <div class="facilities">
+                <h1>Our Facilities</h1>
+
+                <div class="facility-card">
+                    <img src="/Content/Library.jpg" alt="University Library">
+
+                    <div>
+                        <h2>Library</h2>
+                        <p>Our library offers a vast collection of books, journals, and digital resources. It provides a quiet environment for study and research, equipped with modern amenities and comfortable seating.</p>
+                    </div>
+                </div>
+
+                <div class="facility-card">
+                    <img src="~/Content/Laboratories.png" alt="Laboratory">
+                    <div>
+                        <h2>Laboratories</h2>
+                        <p>We have state-of-the-art laboratories for various disciplines including science, engineering, and computer science. These labs are equipped with the latest technology to support hands-on learning and research.</p>
+                    </div>
+                </div>
+
+                <div class="facility-card">
+                    <img src="~/Content/sports.jpg" alt="Sports Center">
+                    <div>
+                        <h2>Sports Center</h2>
+                        <p>Our sports center includes facilities for indoor and outdoor sports such as basketball, tennis, and swimming. We promote a healthy lifestyle through various fitness and recreational activities.</p>
+                    </div>
+                </div>
+
+                <div class="facility-card">
+                    <img src="~/Content/Student Cafeteria.webp" alt="Student Cafeteria">
+                    <div>
+                        <h2>Student Cafeteria</h2>
+                        <p>The cafeteria provides a variety of meal options, catering to different tastes and dietary needs. It’s a great place for students to relax, socialize, and enjoy a nutritious meal.</p>
+                    </div>
+                </div>
+
+                <div class="facility-card">
+                    <img src="~/Content/Conference Hall.webp" alt="Conference Hall">
+                    <div>
+                        <h2>Conference Hall</h2>
+                        <p>Our conference hall is equipped with modern audio-visual equipment and can accommodate large gatherings, seminars, and conferences. It’s a versatile space for academic and professional events.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="container">
+            </br></br></br></br></br></br></br></br></br>
+
+            <h1>Gallery</h1>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="~/Content/Campus Events 2.jpg" alt="Campus Event 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="~/Content/Campus Events.jpeg" alt="Campus Event 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="~/Content/Campus Events.jpg" alt="Campus Event 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="~/Content/Campus Events.png" alt="Campus Event 4">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contactus" class="container">
+            </br></br></br></br></br></br>
+
+            <div class="contact-us">
+                <h1>Contact Us</h1>
+                <div class="contact-info">
+                    <div>
+                        <h2>University Address</h2>
+                        <p>123 University Road, Education City, Country</p>
+                        <p>Phone: +1 234 567 890</p>
+                        <p>Email: info@university.com</p>
+                    </div>
+                    <div>
+                        <h2>Office Hours</h2>
+                        <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                        <p>Saturday: 10:00 AM - 2:00 PM</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                </div>
+                @*<div class="contact-form">
+                    <h2>Get in Touch</h2>
+                    <form action="/submitContactForm" method="post">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <input type="tel" name="phone" placeholder="Your Phone Number">
+                        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>*@
+                <div class="map-container">
+                    <h2>Our Location</h2>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.78559770597!2d-122.367148!3d37.788682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808580b06df9d09b%3A0x6b31509a2180ef6d!2sSan%20Francisco%2C%20CA%2094110!5e0!3m2!1sen!2sus!4v1640903419546!5m2!1sen!2sus" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </section>
+        <button id="scrollToTop" class="scroll-to-top">↑ Top</button>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var scrollToTopButton = document.getElementById("scrollToTop");
+
+                // Show or hide the button based on scroll position
+                window.addEventListener("scroll", function () {
+                    if (window.pageYOffset > 300) { // Adjust the scroll position to show the button
+                        scrollToTopButton.style.display = "block";
+                    } else {
+                        scrollToTopButton.style.display = "none";
+                    }
+                });
+
+                // Smooth scroll to the top when the button is clicked
+                scrollToTopButton.addEventListener("click", function () {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+                });
+            });
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,362 @@
+﻿@{
+    ViewBag.Title = "Extra Study Material";
+}
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Study Materials</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .study-links {
+            display: none;
+        }
+
+        /* Make all cards the same height */
+        .card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card-body {
+            flex-grow: 1;
+        }
+
+        .mt-auto {
+            margin-top: auto; /* Pushes the button to the bottom of the card */
+        }
+
+        /* Container for the whole study materials section */
+#study-material {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+/* Style for the study links section */
+.study-links {
+    margin-bottom: 30px;
+}
+
+/* Heading style for each section */
+.study-links h3 {
+    font-size: 24px;
+    color: #333;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* Style for the strong tags */
+.study-links strong {
+    font-size: 18px;
+    color: #007BFF;
+}
+
+/* Style for the unordered lists */
+.study-links ul {
+    padding-left: 20px;
+    list-style-type: none;
+}
+
+.study-links li {
+    margin: 5px 0;
+}
+
+/* Style for the links */
+.study-links a {
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Change link color on hover */
+.study-links a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+        .inline-black-text {
+            color: black !important;
+            display: inline !important;
+        }
+
+
+/* Responsive design */
+@@media (max-width: 768px) {
+    #study-material {
+        padding: 15px;
+    }
+
+    .study-links h3 {
+        font-size: 20px;
+    }
+
+    .study-links strong {
+        font-size: 16px;
+    }
+
+    .study-links a {
+        font-size: 14px;
+    }
+}
+
+       
+
+    </style>
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4"> Domains with Study Material</h2>
+        <div class="row">
+            <!-- Card 1 - Web Development -->
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title"> Web Development</h5>
+                        <p class="card-text"> Explore materials on HTML, CSS, JavaScript, and more.</p>
+                        <a href="javascript:void(0);" class="btn btn-primary" data-target="web-development"> Study</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 2 - Data Science -->
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title"> Data Science</h5>
+                        <p class="card-text"> Learn Python, Machine Learning, and Data Analysis.</p>
+                        <a href="javascript:void(0);" class="btn btn-primary" data-target="data-science"> Study</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 3 - Mobile Development -->
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title"> Mobile Development</h5>
+                        <p class="card-text"> Dive into Android and iOS app development techniques.</p>
+                        <a href="javascript:void(0);" class="btn btn-primary" data-target="mobile-development"> Study</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 4 - Game Development -->
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title"> Game Development</h5>
+                        <p class="card-text"> Learn to create games using Unity, Unreal Engine, and more.</p>
+                        <a href="javascript:void(0);" class="btn btn-primary" data-target="game-development"> Study</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 5 - Cybersecurity -->
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title"> Cybersecurity</h5>
+                        <p class="card-text"> Study topics on ethical hacking, network security, and more.</p>
+                        <a href="javascript:void(0);" class="btn btn-primary" data-target="cybersecurity"> Study</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 6 - Cloud Computing -->
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title"> Cloud Computing</h5>
+                        <p class="card-text"> Learn about AWS, Azure, Google Cloud, and more.</p>
+                        <a href="javascript:void(0);" class="btn btn-primary" data-target="cloud-computing"> Study</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 7 - AI and Machine Learning -->
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title"> AI and Machine Learning</h5>
+                        <p class="card-text"> Study neural networks, deep learning, and more.</p>
+                        <a href="javascript:void(0);" class="btn btn-primary" data-target="ai-machine-learning"> Study</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Card 8 - Database Management -->
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title"> Database Management</h5>
+                        <p class="card-text"> Learn SQL, NoSQL, and database design principles.</p>
+                        <a href="javascript:void(0);" class="btn btn-primary" data-target="database-management"> Study</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Study Material Links (hidden by default) -->
+        <div id="study-material" class="mt-4">
+            <!-- Web Development -->
+            <div id="web-development" class="study-links">
+                <h3> Web Development Study Materials</h3>
+                <div><strong class="inline-black-text">YouTube Links:</strong></div>
+                <ul>
+                    <li> <a href="https://www.youtube.com/user/TechGuyWeb"> Traversy Media</a> </li>
+                    <li> <a href="https://www.youtube.com/c/TheNetNinja"> The Net Ninja</a> </li>
+                    <li> <a href="https://www.youtube.com/c/Freecodecamp"> freeCodeCamp</a> </li>
+                </ul>
+                <div><strong class="inline-black-text">Study Material Links:</strong></div>
+                <ul>
+                    <li> <a href="https://developer.mozilla.org/en-US/docs/Web/Development"> MDN Web Docs</a> </li>
+                    <li> <a href="https://www.w3schools.com/"> W3Schools</a> </li>
+                    <li> <a href="https://www.smashingmagazine.com/"> Smashing Magazine</a> </li>
+                    <li> <a href="https://css-tricks.com/"> CSS-Tricks</a> </li>
+                    <li> <a href="https://alistapart.com/"> A List Apart</a> </li>
+                </ul>
+            </div>
+            <!-- Data Science -->
+            <div id="data-science" class="study-links">
+                <h3> Data Science Study Materials</h3>
+                <div><strong class="inline-black-text">YouTube Links:</strong></div>
+                <ul>
+                    <li> <a href="https://www.youtube.com/c/StatQuest"> StatQuest</a> </li>
+                    <li> <a href="https://www.youtube.com/c/KhanAcademy"> Khan Academy</a> </li>
+                    <li> <a href="https://www.youtube.com/c/3Blue1Brown"> 3Blue1Brown</a> </li>
+                </ul>
+                <div><strong class="inline-black-text">Study Material Links:</strong></div>
+                <ul>
+                    <li> <a href="https://www.datacamp.com/"> DataCamp</a> </li>
+                    <li> <a href="https://www.coursera.org/"> Coursera</a> </li>
+                    <li> <a href="https://www.analyticsvidhya.com/"> Analytics Vidhya</a> </li>
+                </ul>
+            </div>
+            <!-- Mobile Development -->
+            <div id="mobile-development" class="study-links">
+                <h3> Mobile Development Study Materials</h3>
+                <div><strong class="inline-black-text">YouTube Links:</strong></div>
+                <ul>
+                    <li> <a href="https://www.youtube.com/c/CodeWithChris"> Code With Chris</a> </li>
+                    <li> <a href="https://www.youtube.com/c/ProgrammingKnowledge"> ProgrammingKnowledge</a> </li>
+                    <li> <a href="https://www.youtube.com/c/TechWithTim"> Tech With Tim</a> </li>
+                </ul>
+                <div><strong class="inline-black-text">Official Documentation Links:</strong></div>
+
+                <ul>
+                    <li> <a href="https://developer.android.com/guide"> Android Developer Guide</a> </li>
+                    <li> <a href="https://www.apple.com/developer/"> Apple Developer</a> </li>
+                </ul>
+            </div>
+            <!-- Game Development -->
+            <div id="game-development" class="study-links">
+                <h3> Game Development Study Materials</h3>
+                <div><strong class="inline-black-text">YouTube Links:</strong></div>
+                <ul>
+                    <li> <a href="https://www.youtube.com/c/Brackeys"> Brackeys</a> </li>
+                    <li> <a href="https://www.youtube.com/c/UnrealEngine"> Unreal Engine</a> </li>
+                    <li> <a href="https://www.youtube.com/c/Unity3dcollege"> Unity 3D College</a> </li>
+                </ul>
+                <div><strong class="inline-black-text">Official Platform Links:</strong></div>
+
+                <ul>
+                    <li> <a href="https://unity.com/"> Unity Official</a> </li>
+                    <li> <a href="https://www.unrealengine.com/"> Unreal Engine Official</a> </li>
+                </ul>
+            </div>
+            <!-- Cybersecurity -->
+            <div id="cybersecurity" class="study-links">
+                <h3> Cybersecurity Study Materials</h3>
+                <div><strong class="inline-black-text">YouTube Links:</strong></div>
+                <ul>
+                    <li> <a href="https://www.youtube.com/c/TheCyberMentor"> The Cyber Mentor</a> </li>
+                    <li> <a href="https://www.youtube.com/c/NetworkChuck"> NetworkChuck</a> </li>
+                    <li> <a href="https://www.youtube.com/c/HackerSploit"> HackerSploit</a> </li>
+                </ul>
+                <div><strong class="inline-black-text">Study Material Links:</strong></div>
+                <ul>
+                    <li> <a href="https://www.cybrary.it/"> Cybrary</a> </li>
+                    <li> <a href="https://www.infosecinstitute.com/"> InfoSec Institute</a> </li>
+                    <li> <a href="https://www.udemy.com/"> Udemy</a> </li>
+                </ul>
+            </div>
+            <!-- Cloud Computing -->
+            <div id="cloud-computing" class="study-links">
+                <h3> Cloud Computing Study Materials</h3>
+                <div><strong class="inline-black-text">YouTube Links:</strong></div>
+                <ul>
+                    <li> <a href="https://www.youtube.com/c/ACloudGuru"> A Cloud Guru</a> </li>
+                    <li> <a href="https://www.youtube.com/c/CloudAcademy"> Cloud Academy</a> </li>
+                    <li> <a href="https://www.youtube.com/c/Freecodecamp"> freeCodeCamp</a> </li>
+                </ul>
+                <div><strong class="inline-black-text">Study Material Links:</strong></div>
+                <ul>
+                    <li> <a href="https://aws.amazon.com/training/"> AWS Training</a> </li>
+                    <li> <a href="https://learn.microsoft.com/en-us/azure/"> Microsoft Azure</a> </li>
+                    <li> <a href="https://cloud.google.com/training"> Google Cloud Training</a> </li>
+                </ul>
+            </div>
+            <!-- AI and Machine Learning -->
+            <div id="ai-machine-learning" class="study-links">
+                <h3> AI and Machine Learning Study Materials</h3>
+                <div><strong class="inline-black-text">YouTube Links:</strong></div>
+                <ul>
+                    <li> <a href="https://www.youtube.com/c/3Blue1Brown"> 3Blue1Brown</a> </li>
+                    <li> <a href="https://www.youtube.com/c/StatQuest"> StatQuest</a> </li>
+                    <li> <a href="https://www.youtube.com/c/KhanAcademy"> Khan Academy</a> </li>
+                </ul>
+                <div><strong class="inline-black-text">Study Material Links:</strong></div>
+                <ul>
+                    <li> <a href="https://www.coursera.org/"> Coursera</a> </li>
+                    <li> <a href="https://www.datacamp.com/"> DataCamp</a> </li>
+                    <li> <a href="https://www.udacity.com/"> Udacity</a> </li>
+                </ul>
+            </div>
+            <!-- Database Management -->
+            <div id="database-management" class="study-links">
+                <h3> Database Management Study Materials</h3>
+                <div><strong class="inline-black-text">YouTube Links:</strong></div>
+                <ul>
+                    <li> <a href="https://www.youtube.com/c/TechWithTim"> TechWithTim</a> </li>
+                    <li> <a href="https://www.youtube.com/c/TheNetNinja"> The Net Ninja</a> </li>
+                    <li> <a href="https://www.youtube.com/c/TraversyMedia"> Traversy Media</a> </li>
+                </ul>
+
+                <div><strong class="inline-black-text">Study Material Links:</strong></div>
+
+                <ul>
+                    <li> <a href="https://www.mongodb.com/"> MongoDB Official</a> </li>
+                    <li> <a href="https://www.mysql.com/"> MySQL Official</a> </li>
+                    <li> <a href="https://www.postgresql.org/"> PostgreSQL Official</a> </li>
+                </ul>
+            </div>
+        </div>
+
+    <script>
+        document.querySelectorAll('.btn[data-target]').forEach(function (button) {
+            button.addEventListener('click', function () {
+                var target = button.getAttribute('data-target');
+
+                // Hide all cards
+                document.querySelectorAll('.card').forEach(function (card) {
+                    card.style.display = 'none';
+                });
+
+                // Show the study materials for the selected card
+                document.querySelectorAll('.study-links').forEach(function (section) {
+                    section.style.display = 'none';
+                });
+
+                var targetElement = document.getElementById(target);
+                if (targetElement) {
+                    targetElement.style.display = 'block';
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

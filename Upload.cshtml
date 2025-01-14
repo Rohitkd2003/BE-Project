@@ -1,0 +1,220 @@
+﻿@{
+    Layout = null;
+}
+@{
+    ViewBag.Title = "Upload PPT";
+}
+
+<div class="container my-4">
+    <h2 class="text-center styled-title">Upload Document</h2> <!-- Title at the top center -->
+
+    @using (Html.BeginForm("Upload", "PptFile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group text-center">
+            <!-- Center the content of the form group -->
+            @Html.Label("Select a Ppt file:", new { @class = "form-label" })
+            <input type="file" name="file" accept=".pptx" required class="form-control mb-3" />
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-danger">@ViewBag.Message</div>
+            }
+        </div>
+        <div class="text-center">
+            <button type="submit" class="button">
+                <!-- Ensure this is a submit button -->
+                <span class="button_lg">
+                    <span class="button_sl"></span>
+                    <span class="button_text">Upload</span>
+                </span>
+            </button>
+        </div>
+    }
+</div>
+
+<style>
+    body {
+        background-color: #f4f7fa; /* Light gray background for a soft look */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font family */
+        color: #333; /* Darker text color for readability */
+        display: flex; /* Use flexbox to center content */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        height: 100vh; /* Full viewport height */
+        margin: 0; /* Remove default margin */
+    }
+
+    h2 {
+        color: #0e4c92; /* Dark blue for the header */
+        font-size: 2em; /* Larger size for prominence */
+        margin-bottom: 1rem; /* Spacing below the header */
+        text-align: center; /* Center the title */
+        font-family: 'Arial Black', sans-serif; /* Different font style */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    }
+
+    .container {
+        max-width: 600px; /* Increased width for more space */
+        margin: auto;
+        padding: 30px;
+        background-color: #ffffff; /* White background for contrast */
+        border-radius: 8px; /* More pronounced rounded corners */
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); /* Softer shadow for a floating effect */
+        display: flex; /* Center content */
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center items */
+        justify-content: space-between; /* Space elements vertically */
+        min-height: 300px; /* Minimum height for card */
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem; /* Increased margin for better spacing */
+        width: 100%; /* Full width for form group */
+        text-align: center; /* Center text in form group */
+    }
+
+    .form-label {
+        font-weight: 600; /* Semi-bold labels for clarity */
+        margin-bottom: 0.5rem; /* Spacing below the label */
+    }
+
+    .form-control {
+        border: 1px solid #ced4da; /* Standard border color */
+        border-radius: 5px; /* Rounded corners for inputs */
+        padding: 12px; /* Increased padding for comfort */
+        transition: border-color 0.2s; /* Smooth transition for focus effect */
+    }
+
+        .form-control:focus {
+            border-color: #007bff; /* Blue border on focus */
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle shadow for focus */
+        }
+
+    /* Button styling */
+    .button {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        border: none; /* Ensure no borders */
+        background: none; /* Ensure no background */
+        color: #0f1923;
+        cursor: pointer;
+        position: relative;
+        padding: 8px;
+        margin-left:150px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 14px;
+        transition: all .15s ease;
+    }
+
+        .button::before,
+        .button::after {
+            content: '';
+            display: block;
+            position: absolute;
+            right: 0;
+            left: 0;
+            height: calc(50% - 5px);
+            border: 1px solid #7D8082;
+            transition: all .15s ease;
+        }
+
+        .button::before {
+            top: 0;
+            border-bottom-width: 0;
+        }
+
+        .button::after {
+            bottom: 0;
+            border-top-width: 0;
+        }
+
+        .button:active,
+        .button:focus {
+            outline: none;
+        }
+
+            .button:active::before,
+            .button:active::after {
+                right: 3px;
+                left: 3px;
+            }
+
+            .button:active::before {
+                top: 3px;
+            }
+
+            .button:active::after {
+                bottom: 3px;
+            }
+
+    .button_lg {
+        position: relative;
+        display: block;
+        padding: 10px 20px;
+        color: #fff;
+        background-color: #0f1923;
+        overflow: hidden;
+        box-shadow: inset 0px 0px 0px 1px transparent;
+    }
+
+        .button_lg::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 2px;
+            background-color: #0f1923;
+        }
+
+        .button_lg::after {
+            content: '';
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 4px;
+            height: 4px;
+            background-color: #0f1923;
+            transition: all .2s ease;
+        }
+
+    .button_sl {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: -1px;
+        left: -8px;
+        width: 0;
+        background-color: #ff4655;
+        transform: skew(-15deg);
+        transition: all .2s ease;
+    }
+
+    .button_text {
+        position: relative;
+    }
+
+    .button:hover {
+        color: #0f1923;
+    }
+
+        .button:hover .button_sl {
+            width: calc(100% + 15px);
+        }
+
+        .button:hover .button_lg::after {
+            background-color: #fff;
+        }
+
+    .alert {
+        margin-top: 1rem; /* Margin for the alert */
+        padding: 10px; /* Padding for the alert */
+        border-radius: 5px; /* Rounded corners for alerts */
+    }
+</style>

@@ -1,0 +1,127 @@
+﻿@model BE_PROJECT_1.Models.Company
+
+@{
+    Layout = null;
+}
+@{
+    ViewBag.Title = "Create Placement Company";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Placement Form</title>
+
+    <!-- Add Bootstrap for layout -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #f4f7fa;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin-top: 50px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #004085;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+            .form-control:focus {
+                border-color: #004085;
+                box-shadow: 0 0 5px rgba(0, 64, 133, 0.3);
+            }
+
+        .btn-submit {
+            background-color: #004085;
+            color: white;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            width: 100%;
+            cursor: pointer;
+            border: none;
+        }
+
+            .btn-submit:hover {
+                background-color: #0056b3;
+            }
+
+        .form-row .col {
+            margin-bottom: 20px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+
+        <div class="container">
+            <h2>Placement Application Form</h2>
+
+            <form action="~/all/PlacementCell" method="POST" enctype="multipart/form-data">
+
+                <!-- Personal Information -->
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Name, "Company Name", new { @class = "control-label" })
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Enter company name" })
+                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.MinCgpa, "Minimum CGPA", new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.MinCgpa, new { @class = "form-control", placeholder = "Enter minimum CGPA" })
+                    @Html.ValidationMessageFor(m => m.MinCgpa, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.MaxBacklogs, "Maximum Backlogs", new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.MaxBacklogs, new { @class = "form-control", placeholder = "Enter maximum backlogs allowed" })
+                    @Html.ValidationMessageFor(m => m.MaxBacklogs, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.RequiredSkills, "Required Skills", new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.RequiredSkills, new { @class = "form-control", placeholder = "Enter required skills" })
+                    @Html.ValidationMessageFor(m => m.RequiredSkills, "", new { @class = "text-danger" })
+                </div>
+
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-submit">Submit Application</button>
+            </form>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    }
+</body>
+
+
+</html>

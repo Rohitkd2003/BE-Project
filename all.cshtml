@@ -1,0 +1,126 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Options</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            padding-top: 50px;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-align: center;
+            cursor: pointer;
+        }
+
+            .card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .card-text {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #007bff, #6f42c1);
+            border: none;
+            color: white;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+            .btn-primary:hover {
+                background: linear-gradient(135deg, #0056b3, #4e148c);
+            }
+
+        .row {
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- View Students Card -->
+            <div class="col-md-5 mb-4">
+                <div class="card" onclick="window.location.href='@Url.Action("ViewStudents", "Student")'">
+                    <div class="card-body">
+                        <h5 class="card-title">View Students</h5>
+                        <p class="card-text">Explore the list of all registered students and their details.</p>
+                        <a href="@Url.Action("Index", "Student")" class="btn btn-primary">Go to Students</a>
+                    </div>
+                </div>
+            </div>
+            <!-- View Teachers Card -->
+            <div class="col-md-5 mb-4">
+                <div class="card" onclick="window.location.href='@Url.Action("ViewTeachers", "Teacher")'">
+                    <div class="card-body">
+                        <h5 class="card-title">View Teachers</h5>
+                        <p class="card-text">Browse through the list of all registered teachers and their details.</p>
+                        <a href="@Url.Action("Index", "Teacher")" class="btn btn-primary">Go to Teachers</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 mb-4">
+                <div class="card" onclick="window.location.href='@Url.Action("add", "AddC")'">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Placements</h5>
+                        <p class="card-text">Add Placements and their details.</p>
+                        <a href="@Url.Action("add", "AddC")" class="btn btn-primary">Add Placements</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5 mb-4">
+                <div class="card" onclick="window.location.href='@Url.Action("ViewTeachers", "Teacher")'">
+                    <div class="card-body">
+                        <h5 class="card-title">Delete Placements</h5>
+                        <p class="card-text">Add Placements and their details.</p>
+                        <a href="@Url.Action("Delete", "Delete")" class="btn btn-primary">Delete Placements</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

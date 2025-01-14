@@ -1,0 +1,110 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Officers</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .officers {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+            .officers h1 {
+                color: #004d99;
+                font-size: 40px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .officers .officer-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .officers .officer {
+                background-color: #f9f9f9;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+
+                .officers .officer img {
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 3px solid #004d99;
+                    margin-bottom: 15px;
+                }
+
+                .officers .officer h2 {
+                    color: #0056b3;
+                    font-size: 24px;
+                    margin: 10px 0;
+                }
+
+                .officers .officer p {
+                    color: #666;
+                    font-size: 16px;
+                    margin: 0;
+                }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="officers">
+            <h1>Our Esteemed Officers</h1>
+
+            <div class="officer-grid">
+                <div class="officer">
+                    <img src="/Content/Officer1.jpg" alt="Officer Name">
+                    <h2>Dr. John </h2>
+                    <p>President</p>
+                </div>
+
+                <div class="officer">
+                    <img src="/Content/Officer2.jpg" alt="Officer Name">
+                    <h2>Dr. Jane Smith</h2>
+                    <p>Vice President</p>
+                </div>
+
+                <div class="officer">
+                    <img src="/Content/Officer3.jpg" alt="Officer Name">
+                    <h2>Mr. Michael Johnson</h2>
+                    <p>Dean of Faculty</p>
+                </div>
+
+                <div class="officer">
+                    <img src="/Content/Officer4.jpg" alt="Officer Name">
+                    <h2>Ms. Emily Davis</h2>
+                    <p>Director of Admissions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sections</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .sections {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+            .sections h1 {
+                color: #004d99;
+                font-size: 40px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+        .section-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+            .section-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .section-card h2 {
+                color: #0056b3;
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+
+            .section-card p {
+                line-height: 1.8;
+            }
+
+            .section-card img {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                margin-top: 20px;
+            }
+
+            .section-card a {
+                display: inline-block;
+                margin-top: 10px;
+                text-decoration: none;
+                color: #004d99;
+                font-weight: bold;
+                border-bottom: 2px solid #004d99;
+                transition: color 0.3s, border-bottom 0.3s;
+            }
+
+                .section-card a:hover {
+                    color: #0056b3;
+                    border-bottom: 2px solid #0056b3;
+                }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="sections">
+            <h1>Academic Sections</h1>
+
+            <div class="section-card">
+                <h2>Faculty of Science</h2>
+                <p>The Faculty of Science offers a range of programs in Physics, Chemistry, Biology, and Mathematics. Our cutting-edge labs and experienced faculty provide an excellent foundation for scientific exploration and research.</p>
+                <img src="/Content/ScienceSection.jpg" alt="Faculty of Science">
+                <a href="#">Learn More</a>
+            </div>
+
+            <div class="section-card">
+                <h2>Faculty of Engineering</h2>
+                <p>Our Engineering faculty covers various disciplines including Mechanical, Electrical, Civil, and Computer Engineering. We emphasize practical experience and innovative projects to prepare our students for the dynamic field of engineering.</p>
+                <img src="/Content/EngineeringSection.jpg" alt="Faculty of Engineering">
+                <a href="#">Learn More</a>
+            </div>
+
+            <div class="section-card">
+                <h2>Faculty of Arts</h2>
+                <p>The Faculty of Arts provides programs in Literature, History, Philosophy, and Fine Arts. Our aim is to foster creativity, critical thinking, and cultural understanding through a rich and diverse curriculum.</p>
+                <img src="/Content/ArtsSection.jpg" alt="Faculty of Arts">
+                <a href="#">Learn More</a>
+            </div>
+
+            <div class="section-card">
+                <h2>Faculty of Business</h2>
+                <p>Our Business faculty offers programs in Management, Finance, Marketing, and Entrepreneurship. We focus on real-world applications and strategic thinking to equip students with the skills needed for successful careers in business.</p>
+                <img src="/Content/BusinessSection.jpg" alt="Faculty of Business">
+                <a href="#">Learn More</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

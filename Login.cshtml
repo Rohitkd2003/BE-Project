@@ -1,0 +1,165 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login - Educational System</title>
+    <style>
+        /* Main Body Style */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0; /* Light Grey Background */
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Card Container */
+        .card {
+            background-color: #ffffff; /* White Background */
+            border-radius: 22px;
+            padding: 2em;
+            max-width: 400px;
+            width: 50%;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Soft shadow */
+            transition: all 0.3s ease;
+        }
+
+            .card:hover {
+                border: 2px solid #007bff; /* Sleek Blue Border */
+                box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+                background-color: #ffffff; /* Maintain White Background */
+                transform: scale(1.02); /* Slight Scale Up */
+                opacity: 0.98;
+            }
+
+        /* Form Design */
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding: 2em;
+            background-color: #f9f9f9; /* Slightly off-white background */
+            border-radius: 25px;
+        }
+
+        /* Form Heading */
+        #heading {
+            text-align: center;
+            color: #333; /* Dark Grey Text */
+            font-size: 1.6em;
+            margin-bottom: 1.5em;
+        }
+
+        /* Input Field Design */
+        .field {
+            display: flex;
+            align-items: center;
+            border-radius: 25px;
+            padding: 0.6em;
+            background-color: #ffffff; /* White Background */
+            border: 1px solid #ddd; /* Light Grey Border */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft inner shadow */
+        }
+
+        .input-field {
+            width: 100%;
+            background: none;
+            border: none;
+            outline: none;
+            color: #333; /* Dark Grey Text */
+            font-size: 1em;
+            padding-left: 10px;
+        }
+
+        /* Button Styles */
+        .form .btn {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5em;
+        }
+
+        .button1 {
+            padding: 0.6em 2em;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff; /* Blue Background */
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .button1:hover {
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                transform: scale(1.05); /* Slight Scale Up */
+                background-color: #0056b3; /* Darker Blue */
+            }
+
+        /* Link Container */
+        .link-container {
+            text-align: center;
+            margin-top: 1.5em;
+            color: #333; /* Dark Grey Text */
+        }
+
+            .link-container a {
+                color: #007bff; /* Blue Links */
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+                .link-container a:hover {
+                    color: #0056b3; /* Darker Blue on Hover */
+                }
+
+        /* Error Message Styling */
+        .text-danger {
+            color: #ff4d4d; /* Red Error Text */
+            text-align: center;
+        }
+
+        /* Emoji Styles */
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="form">
+            <h2 id="heading">Super User Login</h2>
+
+            @using (Html.BeginForm())
+            {
+                <div class="field">
+                    <span class="emoji">🔑</span>
+                    @Html.TextBox("code", null, new { @class = "input-field", placeholder = "Enter your code" })
+                </div>
+                <br />
+                <div class="field">
+                    <span class="emoji">🔒</span>
+                    @Html.Password("password", null, new { @class = "input-field", placeholder = "Enter your password" })
+                </div>
+                <br />
+                <div class="btn">
+                    <input type="submit" value="Login" class="button1" />
+                </div>
+            }
+
+            <h2 class="text-danger">@ViewBag.msg</h2>
+
+
+        </div>
+    </div>
+</body>
+
+</html>

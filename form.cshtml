@@ -1,0 +1,124 @@
+﻿@model BE_PROJECT_1.Models.Student
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Placement Opportunities</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .placement-section {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #004085;
+        }
+
+        .table, .form-container {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control {
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #004085;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Hide placement search form initially */
+        #placementFormContainer {
+            display: none;
+        }
+    </style>
+
+    <script>
+        // JavaScript to show the placement search form after submitting student info
+        function showPlacementForm() {
+            document.getElementById('placementFormContainer').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Placement Opportunities</h1>
+
+        <!-- Student Registration Form -->
+        <!-- Student Registration Form -->
+        <div class="form-container">
+            @using (Html.BeginForm("job", "Student", FormMethod.Post, new { id = "studentForm", enctype = "multipart/form-data", onsubmit = "showPlacementForm();" }))
+            {
+                <table class="table">
+                    <tr>
+                        <td>First Name</td>
+                        <td>@Html.TextBoxFor(e => e.first_name, new { @class = "form-control", placeholder = "Enter first name", maxlength = "50", required = "required" })</td>
+                    </tr>
+                    <tr>
+                        <td>Last Name</td>
+                        <td>@Html.TextBoxFor(e => e.last_name, new { @class = "form-control", placeholder = "Enter last name", maxlength = "50", required = "required" })</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>@Html.TextBoxFor(e => e.email, new { @class = "form-control", placeholder = "Enter email", maxlength = "100", type = "email", required = "required" })</td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td>@Html.TextBoxFor(e => e.phone_number, new { @class = "form-control", placeholder = "Enter phone number", maxlength = "15", type = "tel", required = "required" })</td>
+                    </tr>
+                    <tr>
+                        <td>Degree</td>
+                        <td>@Html.TextBoxFor(e => e.degree, new { @class = "form-control", placeholder = "Enter degree", maxlength = "50", required = "required" })</td>
+                    </tr>
+                    <tr>
+                        <td>Department</td>
+                        <td>@Html.TextBoxFor(e => e.department, new { @class = "form-control", placeholder = "Enter department", maxlength = "50", required = "required" })</td>
+                    </tr>
+                    <tr>
+                        <td>Passing Year</td>
+                        <td>@Html.TextBoxFor(e => e.passing_year, new { @class = "form-control", placeholder = "Enter passing year", type = "number", min = "1900", max = "2100", required = "required" })</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="text-center">
+                            <button type="submit" class="btn btn-primary">Submit Student Info</button>
+                        </td>
+                    </tr>
+                </table>
+            }
+        </div>
+
+
+    </div>
+</body>
+</html>

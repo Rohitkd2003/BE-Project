@@ -1,0 +1,150 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .academics {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+            .academics h1 {
+                color: #004d99;
+                font-size: 40px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+        .program {
+            margin-bottom: 30px;
+        }
+
+            .program h2 {
+                color: #0056b3;
+                font-size: 32px;
+                margin-bottom: 10px;
+            }
+
+            .program p {
+                line-height: 1.8;
+            }
+
+            .program img {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                margin-top: 20px;
+            }
+
+        .departments {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .department {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(50% - 20px);
+            margin-bottom: 20px;
+        }
+
+            .department h3 {
+                color: #004d99;
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+
+            .department p {
+                line-height: 1.8;
+            }
+
+        (max-width: 768px) {
+            .department
+
+        {
+            flex: 1 1 100%;
+        }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="academics">
+            <h1>Academics</h1>
+
+            <div class="program">
+                <h2>Undergraduate Programs</h2>
+                <p>Our undergraduate programs offer a comprehensive curriculum designed to equip students with the knowledge and skills needed for their chosen careers. From engineering to humanities, our programs are tailored to provide a well-rounded education.</p>
+                <img src="/Content/UndergraduatePrograms.jpg" alt="Undergraduate Programs">
+            </div>
+
+            <div class="program">
+                <h2>Graduate Programs</h2>
+                <p>Our graduate programs provide advanced education and research opportunities in various fields. Students can engage in cutting-edge research, participate in industry collaborations, and develop specialized skills.</p>
+                <img src="/Content/GraduatePrograms.jpg" alt="Graduate Programs">
+            </div>
+
+            <div class="program">
+                <h2>Doctoral Programs</h2>
+                <p>Our doctoral programs are designed for students who aspire to conduct high-level research and contribute to academic knowledge. With access to expert faculty and research facilities, students can pursue their research interests and make significant contributions to their fields.</p>
+                <img src="/Content/DoctoralPrograms.jpg" alt="Doctoral Programs">
+            </div>
+
+            <div class="program">
+                <h2>Continuing Education</h2>
+                <p>Our continuing education programs offer opportunities for lifelong learning. These programs are designed for professionals looking to enhance their skills, gain new certifications, or explore new areas of interest.</p>
+                <img src="/Content/ContinuingEducation.jpg" alt="Continuing Education">
+            </div>
+
+            <h1>Departments</h1>
+            <div class="departments">
+                <div class="department">
+                    <h3>Department of Computer Science</h3>
+                    <p>The Department of Computer Science offers cutting-edge courses and research opportunities in areas such as software engineering, artificial intelligence, and cybersecurity.</p>
+                </div>
+
+                <div class="department">
+                    <h3>Department of Business Administration</h3>
+                    <p>The Department of Business Administration provides comprehensive programs in business management, finance, and marketing, preparing students for leadership roles in the corporate world.</p>
+                </div>
+
+                <div class="department">
+                    <h3>Department of Engineering</h3>
+                    <p>The Department of Engineering offers programs in various engineering disciplines, including mechanical, civil, and electrical engineering, with a focus on practical and theoretical knowledge.</p>
+                </div>
+
+                <div class="department">
+                    <h3>Department of Humanities</h3>
+                    <p>The Department of Humanities explores various fields such as literature, history, and philosophy, providing students with a deep understanding of human culture and intellectual traditions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

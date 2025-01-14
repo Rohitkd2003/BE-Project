@@ -1,0 +1,125 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facilities</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .facilities {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+            .facilities h1 {
+                color: #004d99;
+                font-size: 40px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+        .facility-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+            .facility-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .facility-card img {
+                width: 150px;
+                height: 150px;
+                border-radius: 8px;
+                margin-right: 20px;
+                object-fit: cover;
+            }
+
+            .facility-card h2 {
+                color: #0056b3;
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+
+            .facility-card p {
+                line-height: 1.8;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="facilities">
+            <h1>Our Facilities</h1>
+
+            <div class="facility-card">
+                <img src="/Content/Library.jpg" alt="University Library">
+                <div>
+                    <h2>Library</h2>
+                    <p>Our library offers a vast collection of books, journals, and digital resources. It provides a quiet environment for study and research, equipped with modern amenities and comfortable seating.</p>
+                </div>
+            </div>
+
+            <div class="facility-card">
+                <img src="/Content/Lab.jpg" alt="Laboratory">
+                <div>
+                    <h2>Laboratories</h2>
+                    <p>We have state-of-the-art laboratories for various disciplines including science, engineering, and computer science. These labs are equipped with the latest technology to support hands-on learning and research.</p>
+                </div>
+            </div>
+
+            <div class="facility-card">
+                <img src="/Content/SportsCenter.jpg" alt="Sports Center">
+                <div>
+                    <h2>Sports Center</h2>
+                    <p>Our sports center includes facilities for indoor and outdoor sports such as basketball, tennis, and swimming. We promote a healthy lifestyle through various fitness and recreational activities.</p>
+                </div>
+            </div>
+
+            <div class="facility-card">
+                <img src="/Content/StudentCafeteria.jpg" alt="Student Cafeteria">
+                <div>
+                    <h2>Student Cafeteria</h2>
+                    <p>The cafeteria provides a variety of meal options, catering to different tastes and dietary needs. It’s a great place for students to relax, socialize, and enjoy a nutritious meal.</p>
+                </div>
+            </div>
+
+            <div class="facility-card">
+                <img src="/Content/ConferenceHall.jpg" alt="Conference Hall">
+                <div>
+                    <h2>Conference Hall</h2>
+                    <p>Our conference hall is equipped with modern audio-visual equipment and can accommodate large gatherings, seminars, and conferences. It’s a versatile space for academic and professional events.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
+
